@@ -1,10 +1,9 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import useSWR from 'swr'
 
 import { ReactComponent as Icon } from './icon.svg'
 import './styles.css'
-import { useEffect, useState } from 'react'
 
 interface Props {
   title?: string
@@ -13,6 +12,14 @@ interface Props {
   assetManifestUrl?: string
   onReload?: () => void
 }
+
+const assetManifestFetcher = (assetManifestUrl: string) =>
+  axios.get(`${assetManifestUrl}?_${new Date().getTime()}`, {
+    responseType: 'text',
+    transformResponse: [(data) => {
+      return data
+    }]
+  })
 
 // noinspection JSUnusedGlobalSymbols
 export const UpdateNotification = (
@@ -23,14 +30,10 @@ export const UpdateNotification = (
     assetManifestUrl = '/asset-manifest.json',
     onReload
   }: Props) => {
-  const instance = axios.create({
-    responseType: 'text',
-    transformResponse: [(data) => {
-      return data
-    }]
-  })
   const [assetManifest, setAssetManifest] = useState('')
-  const { data } = useSWR(assetManifestUrl, instance.get)
+  const { data } = useSWR(assetManifestUrl, assetManifestFetcher, {
+    refreshInterval: 120000
+  })
   useEffect(() => {
     if (!assetManifest && data) {
       setAssetManifest(data.data)
