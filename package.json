@@ -1,6 +1,6 @@
 {
   "name": "react-update-popup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ask users to refresh when there is a new version of the app available.",
   "author": "Flexible Agency <info@flexible.agency>",
   "license": "MIT",
