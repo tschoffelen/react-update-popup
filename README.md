@@ -3,6 +3,7 @@
 **Ask users to refresh when there is a new version of the app available.**
 
 [![NPM](https://img.shields.io/npm/v/react-update-popup.svg)](https://www.npmjs.com/package/react-update-popup)
+[![GitHub license](https://img.shields.io/github/license/flexible-agency/react-update-popup.svg)](https://github.com/flexible-agency/react-update-popup/blob/master/LICENSE)
 
 
 ## Install
@@ -52,6 +53,8 @@ All props are optional, and can be used to change the appearance of the popup.
 * function `onReload` - replace default reload behaviour
 
 
-## License
+## Authors
 
-MIT © [flexible-agency](https://github.com/flexible-agency)
+This library is developed by Flexible Agency, a creative app development agency.
+
+- Thomas Schoffelen, [@tschoffelen](https://twitter.com/tschoffelen)
