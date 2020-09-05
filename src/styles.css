@@ -1,0 +1,49 @@
+.update-notification-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .05), 0 1px 4px rgba(0, 0, 0, .1), 0 10px 30px #f3ece8;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 24px;
+  display: flex;
+  max-width: calc(100vw - 48px);
+  width: 300px;
+}
+
+.update-notification-popup * {
+  margin: 0;
+  padding: 0;
+}
+
+.update-notification-popup h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.update-notification-popup p {
+  font-size: 0.9rem;
+}
+
+.update-notification-popup svg {
+  flex: 0;
+  min-width: 32px;
+  height: 32px;
+  width: 32px;
+  margin-right: 24px;
+}
+
+.update-notification-popup button {
+  background-color: #2977f6;
+  border-radius: 4px;
+  color: #fff;
+  border: 0;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  height: 38px;
+  font-weight: 600;
+  margin-top: 22px;
+  display: inline-block;
+}

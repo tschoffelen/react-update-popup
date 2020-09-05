@@ -1,0 +1,6 @@
+/example
+/src
+/.github
+.prettierrc
+.editorconfig
+tsconfig.json
