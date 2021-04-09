@@ -16,9 +16,7 @@ interface Props {
 const assetManifestFetcher = (assetManifestUrl: string) =>
   axios.get(`${assetManifestUrl}?_${new Date().getTime()}`, {
     responseType: 'text',
-    transformResponse: [(data) => {
-      return data
-    }]
+    transformResponse: [(data) => data]
   })
 
 // noinspection JSUnusedGlobalSymbols

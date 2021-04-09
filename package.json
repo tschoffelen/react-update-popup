@@ -14,8 +14,9 @@
     "start": "microbundle-crl watch --no-compress --css-modules false --format modern,cjs",
     "prepare": "run-s build"
   },
-  "peerDependencies": {
-    "react": "^16.0.0"
+  "dependencies": {
+    "axios": "^0.21.1",
+    "swr": "^0.5.5"
   },
   "devDependencies": {
     "@types/node": "^12.12.38",
@@ -32,11 +33,10 @@
     "react-scripts": "^3.4.1",
     "typescript": "^3.7.5"
   },
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "axios": "^0.20.0",
-    "swr": "^0.3.2"
-  }
+  ]
 }
