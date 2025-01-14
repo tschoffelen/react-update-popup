@@ -8,6 +8,8 @@ interface Props {
   checkHasUpdate?: () => Promise<boolean>
   refreshInterval?: number
   onReload?: () => void
+  className?: string
+  children?: React.ReactNode
 }
 
 let previousResponse = ''
@@ -30,23 +32,30 @@ export const UpdateNotification = ({
   buttonText = 'Reload now',
   checkHasUpdate = defaultUpdateChecker,
   refreshInterval = 120000,
+  className = '',
+  children = null,
   onReload = () => typeof window !== 'undefined' && window.location.reload()
 }: Props) => {
-  const { data: updateAvailable } = useSWR('', checkHasUpdate, {
-    refreshInterval
-  })
+  const { data: updateAvailable } = useSWR(
+    'react-update-popup',
+    checkHasUpdate,
+    {
+      refreshInterval
+    }
+  )
 
   if (!updateAvailable) {
     return null
   }
 
   return (
-    <div className='update-notification-popup'>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <button onClick={onReload}>{buttonText}</button>
-      <style>
-        {`
+    children || (
+      <div className={`update-notification-popup ${className}`}>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <button onClick={onReload}>{buttonText}</button>
+        <style>
+          {`
           .update-notification-popup {
             position: fixed;
             bottom: 24px;
@@ -89,7 +98,8 @@ export const UpdateNotification = ({
             display: inline-block;
           }
         `}
-      </style>
-    </div>
+        </style>
+      </div>
+    )
   )
 }
