@@ -18,7 +18,6 @@ yarn add react-update-popup
 import React, { Component } from 'react'
 
 import { UpdateNotification } from 'react-update-popup'
-import 'react-update-popup/dist/index.css'
 
 const Example = () => (
   <UpdateNotification
