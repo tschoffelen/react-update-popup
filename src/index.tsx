@@ -35,7 +35,7 @@ export const UpdateNotification = ({
   className = '',
   children = null,
   onReload = () => typeof window !== 'undefined' && window.location.reload()
-}: Props) => {
+}: Props) : React.ReactNode => {
   const { data: updateAvailable } = useSWR(
     'react-update-popup',
     checkHasUpdate,
